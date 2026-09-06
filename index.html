@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CubeRewards - Earn and Redeem</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="cube-icon">⬜</span>
+                <span class="logo-text">CubeRewards</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#redeem" class="nav-link" data-page="redeem">Redeem</a></li>
+                <li><a href="#profile" class="nav-link" data-page="profile">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Pages Container -->
+    <div class="pages-container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="page-content">
+                <div class="header-section">
+                    <div class="cube-display">⬜</div>
+                    <h1>Welcome to CubeRewards</h1>
+                    <p class="subtitle">Earn Cube Points passively and redeem amazing rewards</p>
+                </div>
+
+                <div class="points-card">
+                    <div class="points-label">Your Cube Points</div>
+                    <div class="points-display" id="pointsDisplay">0</div>
+                    <div class="points-earning">Earning 50 points every 10 seconds</div>
+                </div>
+
+                <div class="vip-section">
+                    <div class="vip-banner">
+                        <div class="vip-icon">👑</div>
+                        <div class="vip-content">
+                            <h3>Upgrade to VIP Pass</h3>
+                            <p>Get 750 points instantly + 100 points per 10 seconds</p>
+                            <button class="btn btn-primary" id="buyVipBtn">Get VIP Pass - $4.99</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="earnings-info">
+                    <h3>How it Works</h3>
+                    <ul>
+                        <li><span class="check">✓</span> Earn 50 Cube Points every 10 seconds</li>
+                        <li><span class="check">✓</span> No spending required, just keep the app open</li>
+                        <li><span class="check">✓</span> Upgrade to VIP for 2x earning rate</li>
+                        <li><span class="check">✓</span> Redeem points for Robux rewards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Redeem Page -->
+        <div id="redeem" class="page">
+            <div class="page-content">
+                <h1>Redeem Rewards</h1>
+                <p class="subtitle">Exchange your Cube Points for Robux</p>
+
+                <div class="rewards-grid">
+                    <!-- 400 Robux -->
+                    <div class="reward-card">
+                        <div class="reward-icon">🎮</div>
+                        <div class="reward-robux">400 Robux</div>
+                        <div class="reward-price">$4.99</div>
+                        <button class="btn btn-secondary reward-btn" data-robux="400" data-price="4.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <!-- 800 Robux -->
+                    <div class="reward-card">
+                        <div class="reward-icon">🎮</div>
+                        <div class="reward-robux">800 Robux</div>
+                        <div class="reward-price">$9.99</div>
+                        <button class="btn btn-secondary reward-btn" data-robux="800" data-price="9.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <!-- 1200 Robux -->
+                    <div class="reward-card popular">
+                        <div class="popular-badge">BEST VALUE</div>
+                        <div class="reward-icon">🎮</div>
+                        <div class="reward-robux">1,200 Robux</div>
+                        <div class="reward-price">$14.99</div>
+                        <button class="btn btn-primary reward-btn" data-robux="1200" data-price="14.99">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <!-- 2000 Robux -->
+                    <div class="reward-card">
+                        <div class="reward-icon">🎮</div>
+                        <div class="reward-robux">2,000 Robux</div>
+                        <div class="reward-price">$24.99</div>
+                        <button class="btn btn-secondary reward-btn" data-robux="2000" data-price="24.99">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="redemption-info">
+                    <h3>About Robux</h3>
+                    <p>Robux is the premium currency in Roblox. Use it to purchase limited items, avatar accessories, and more!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profile" class="page">
+            <div class="page-content">
+                <h1>Your Profile</h1>
+
+                <div class="profile-card">
+                    <div class="profile-avatar">👤</div>
+                    <div class="profile-info">
+                        <div class="profile-item">
+                            <label>Username</label>
+                            <div class="profile-value" id="usernameDisplay">Player_123</div>
+                        </div>
+                        <div class="profile-item">
+                            <label>Current Cube Points</label>
+                            <div class="profile-value highlight" id="profilePointsDisplay">0</div>
+                        </div>
+                        <div class="profile-item">
+                            <label>Total Points Earned</label>
+                            <div class="profile-value" id="totalPointsDisplay">0</div>
+                        </div>
+                        <div class="profile-item">
+                            <label>VIP Status</label>
+                            <div class="profile-value vip-status" id="vipStatusDisplay">
+                                <span class="status-inactive">Standard</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <button class="btn btn-secondary" id="editUsernameBtn">Edit Username</button>
+                    <button class="btn btn-secondary" id="resetProgressBtn">Reset Progress</button>
+                </div>
+
+                <div class="profile-stats">
+                    <h3>Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-value" id="earnRateDisplay">50</div>
+                            <div class="stat-label">Points/10sec</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="sessionTimeDisplay">0m</div>
+                            <div class="stat-label">Session Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Username Edit -->
+    <div id="usernameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Username</h2>
+            <input type="text" id="usernameInput" placeholder="Enter new username" maxlength="20">
+            <button class="btn btn-primary" id="saveUsernameBtn">Save</button>
+        </div>
+    </div>
+
+    <!-- Modal for Purchase Confirmation -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Purchase Confirmation</h2>
+            <div id="purchaseDetails"></div>
+            <button class="btn btn-primary" id="confirmPurchaseBtn">Confirm Purchase</button>
+            <button class="btn btn-secondary" id="cancelPurchaseBtn">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
